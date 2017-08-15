@@ -50,6 +50,9 @@ $headings-font-family: 'Iranian Sans';
 @ms-viewport {
   width: device-width;
 }
+body,html {
+	font-family: 'Iranian Sans' !important;
+}
 
 .page-header {
     //border-bottom: none;
