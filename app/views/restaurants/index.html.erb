@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+  <div class="page-header">
+    <h1>Book a table. Enjoy a night out.</h1>
+  </div>
+
+<div class="row">
+  <p class="text-large light-text col-xs-12 col-sm-6">Browse Restaurants</p>
+  <div class="col-xs-12 col-sm-3 col-sm-offset-3">
+    <div class="btn-group">
+       <button class="btn btn-default dropdown-toggle" type="button" id="cat-filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <%= @cat_name %> &nbsp; <span class="caret"></span>
+       </button>
+       <ul class="dropdown-menu">
+         <li>
+           <%= link_to restaurants_path do %>
+           All Categories
+           <% end %>
+         </li>
+         <% @dropdown_categories.each do |category| %>
+           <li>
+             <%= link_to restaurants_path(:cat_id => category.id) do %>
+               <%= category.name %>
+             <% end %>
+           </li>
+         <% end %>
+       </ul>
+     </div>
+  </div>
+</div>
+
+<br />
+<br />
+
+<div class="row">
+  <% @restaurants.each do |restaurant| %>
+    <%= link_to restaurant, :action => 'go' do %>
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="circle circle-solid">
+             <div class="circle-inner">
+                 <div class="circle-text">
+                    <h3><%= restaurant.name %></h3>
+                    <p class="restaurant-text-reg"><%= restaurant.city %>, <%= restaurant.state %></h4>
+                 </div>
+             </div>
+        </div>
+      </div>
+    <% end%>
+  <% end %>
+</div>
+
+<br>

@@ -1,0 +1,22 @@
+<div class="page-header">
+  <h1>My Starred Restaurants</h1>
+</div>
+
+<% if @my_stars.any? %>
+   <% @my_stars.each do |restaurant| %>
+   <%= link_to restaurant, :action => 'go' do %>
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="circle circle-solid">
+             <div class="circle-inner">
+                 <div class="circle-text">
+                    <h3><%= restaurant.name %></h3>
+                    <p class="restaurant-text-reg"><%= restaurant.city %></h4>
+                  </div>
+             </div>
+        </div>
+      </div>
+    <% end %>
+    <% end %>
+<% else %>
+  <p class="light-text">No restaurants starred yet...</p>
+<% end %>

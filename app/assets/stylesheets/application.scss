@@ -1,0 +1,159 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+$font-family-sans-serif: 'Palanquin', sans-serif;
+$font-family-serif: 'Scope One', serif;
+$font-size-base: 15px;
+$text-color: #06304a;
+$headings-font-family: 'Scope One', serif;
+$body-bg: #083C5D;
+$brand-primary: #0c5a8c;
+$navbar-default-bg: #06304a;
+$navbar-default-color: #E4F1FE;
+$navbar-default-link-color: #839dae;
+$navbar-default-link-hover-color: #839dae;
+$navbar-default-link-hover-bg: #083C5D;
+$navbar-default-brand-hover-bg: #083C5D;
+$navbar-default-brand-hover-color: #839dae;
+$navbar-default-border: #052b42;
+$panel-bg: #f7efcf;
+$link-color: #2C3E50;
+$link-hover-color: lighten($link-color, 15%);
+$link-hover-decoration: none;
+$dropdown-bg: #fbf7e7;
+$dropdown-link-hover-bg: #fefefc;
+
+@import url(https://fonts.googleapis.com/css?family=Scope+One|Palanquin:300);
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "parsley";
+@import "bootstrap-multiselect";
+
+@ms-viewport {
+  width: device-width;
+}
+
+.page-header {
+    //border-bottom: none;
+    border-bottom: 1px solid #052b42;
+    color: #ecd987;
+    font-size: 46px;
+}
+
+.light-text {
+	color: #9cb1be;
+}
+
+.text-large {
+  font-size: 30px;
+}
+
+.restaurant-text-large {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.restaurant-text-reg {
+  font-size: 18px;
+}
+
+#user_remember_me {
+	margin-left: 0px;
+}
+
+#star-button {
+  color: #f7efcf;
+  font-size: 26px;
+  margin: 3px;
+}
+
+.circle {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+	border-radius: 50%;
+	width: 90%;
+	position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15), 0 3px 8px 0 rgba(0, 0, 0, 0.12);
+}
+
+.circle-border {
+	border: 1px solid black;
+}
+
+.circle-solid{
+	transition: background-color 0.5s ease;
+  background-color: #f7efcf;
+}
+
+.circle-solid:hover {
+  transition: background-color 0.5s ease;
+  background-color: #fcf9ee;
+}
+
+.circle:before {
+	content: "";
+	display: block;
+	padding-top: 100%;
+}
+
+.circle-inner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	text-align: center;
+  padding: 5px;
+}
+
+
+.circle-text {
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 1;
+	right: 0;
+	padding: 30px;
+  text-overflow: ellipsis;
+	// height: 3vw;
+	// line-height: 3vw;
+	// font-size: 3vw;
+}
+
+.smallicons {
+  font-size: 14px;
+  padding: 12px;
+}
+
+.open > .btn-default.dropdown-toggle, .open > .btn-default.dropdown-toggle:hover, .open > .btn-default.dropdown-toggle:focus, .open > .btn-default.dropdown-toggle.focus {
+    background-color: #f7efcf;
+}
+
+.btn-default {
+  background-color: #fff;
+}
+
+.btn-default:hover {
+  background-color: #fcf9ee;
+}
+
+#map {
+  height: 300px;
+}
+
+#cat-filter {
+  background-color: #f7efcf;
+}

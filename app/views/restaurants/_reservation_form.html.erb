@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h2>Make a reservation</h2>
+    <div class="form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, class: "form-control", autofocus: true, :required => '', html: { "data-parsley-trigger" => "change" } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :date %>
+      <%= f.date_field :date, class: "form-control", autofocus: true, :required => ''   %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :time %>
+      <%= f.time_field :time, class: "form-control", autofocus: true, :required => ''   %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :message %>
+      <%= f.text_field :message, class: "form-control", autofocus: true, :required => ''  %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Reserve", class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

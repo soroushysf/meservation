@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1><%= @category.name %></h1>
+</div>
+
+<% @category.restaurants.each do |restaurant| %>
+  <%= link_to restaurant, :action => 'go' do %>
+    <div class="col-xs-12 col-sm-4 col-md-3">
+      <div class="circle circle-solid">
+           <div class="circle-inner">
+               <div class="circle-text">
+                  <h2><%= restaurant.name %></h2>
+                  <h4><%= restaurant.phone %></h4>
+                </div>
+           </div>
+      </div>
+    </div>
+  <% end%>
+<% end %>
+
+<%= link_to 'Back', restaurants_path %>

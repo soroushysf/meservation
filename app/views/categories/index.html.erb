@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="page-header">
+  <h1>What are you in the mood for?</h1>
+</div>
+
+<div class="row">
+
+  <% @categories.each do |category| %>
+    <%= link_to category, :action => 'go' do %>
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="circle circle-solid">
+             <div class="circle-inner">
+                 <div class="circle-text">
+                    <h2><%= category.name %></h2>
+                  </div>
+             </div>
+        </div>
+      </div>
+    <% end%>
+  <% end %>
+
+</div>
+
+<br>

@@ -1,0 +1,62 @@
+<%= form_for(restaurant, html: { "data-parsley-validate" => '' }) do |f| %>
+  <% if restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+
+      <ul>
+      <% restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group col-sm-12">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control", autofocus: true, :required => '' %>
+  </div>
+
+  <div class="form-group col-sm-12">
+    <%= f.label :street %>
+    <%= f.text_field :street, class: "form-control", autofocus: true, :required => '' %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= f.label :city %>
+    <%= f.text_field :city, class: "form-control", autofocus: true, :required => '' %>
+  </div>
+
+  <div class="form-group col-sm-2">
+    <%= f.label :state %>
+    <%= f.text_field :state, class: "form-control", autofocus: true, :required => '' %>
+  </div>
+
+  <div class="form-group col-sm-4">
+    <%= f.label :zip %>
+    <%= f.text_field :zip, class: "form-control", autofocus: true, :required => '' %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= f.label :phone %>
+    <%= f.text_field :phone, class: "form-control", autofocus: true, :required => '' %>
+  </div>
+
+  <div class="form group col-sm-6">
+    <%= f.label :categories %><br>
+    <%= f.select :category_ids,
+      Category.all.map { |c| [c.name, c.id] },
+                   { },
+                   { multiple: true, id: 'categories'}
+    %>
+  </div>
+  <br>
+  <div class="form-group col-sm-12">
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#categories').multiselect();
+    });
+</script>

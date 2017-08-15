@@ -1,0 +1,75 @@
+<p id="notice" class="light-text"><%= notice %></p>
+
+<div class="page-header">
+  <h1><%= @restaurant.name %></h1>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-7">
+    <h4 class="light-text">
+      <% @restaurant.categories.each_with_index do |category, i| %>
+      <%=category.name%><% if i < @restaurant.categories.length-1 %>,<% end %>
+      <% end%>
+    </h4>
+    <h5 class="light-text">
+      Address: <%= @restaurant.street %>, <%= @restaurant.city %>, <%= @restaurant.state %>
+    </h5>
+    <h5 class="light-text">
+      Phone:
+      <%= @restaurant.phone %>
+    </h5>
+
+    <%icon_class = current_user.starred_restaurants.include?(@restaurant) ? 'glyphicon-star' : 'glyphicon-star-empty' %>
+
+    <%= link_to "<span class='glyphicon #{icon_class}' id='star-button'></i>".html_safe, star_restaurant_path(@restaurant), method: :put, remote: true %>
+
+     <p class="light-text">
+      <strong>Starred <%= @restaurant.starred_by.count %> times</strong>
+    </p>
+
+    <% if @restaurant.latitude.present? && @restaurant.longitude.present? %>
+      <script>
+        function initMap() {
+          	var myLatLng = {lat: <%= @restaurant.latitude %>, lng: <%= @restaurant.longitude %>};
+          	var map = new google.maps.Map(document.getElementById('map'), {
+            	zoom: 12,
+            	center: myLatLng
+          	});
+          	var marker = new google.maps.Marker({
+            	position: myLatLng,
+            	map: map,
+            	title: 'Hello World!'
+          	});
+        }
+      </script>
+      <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-xa2Njaex7mPYY0Go_lsbDSnzM-cF1Kk&callback=initMap">
+      </script>
+
+      <div id="map"></div>
+
+    <% end %>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+    <%= form_for @reservation, url: restaurant_reservations_path(@restaurant) do |f| %>
+    <%= render "reservation_form", f: f %>
+  <% end %>
+  </div>
+</div>
+
+<% if current_user && @restaurant.user == current_user && current_user.owner? %>
+  <% @restaurant.reservations.each do |r| %>
+    <h3 class="light-text">
+      Reservations:
+    </h3>
+    <p class="light-text">
+    <strong>Email:</strong>
+    <%= r.email %>
+    </p>
+    <p><%= link_to 'Delete reservation', restaurant_reservation_path(restaurant_id: r.restaurant_id, id: r.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <% end %>
+  <td><%= link_to 'Edit', edit_restaurant_path(@restaurant) %></td> |
+  <td><%= link_to 'Delete restaurant', @restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% end %>
+<%= link_to 'Back', restaurants_path %>
