@@ -12,11 +12,9 @@
  *
  */
 
-$font-family-sans-serif: 'Palanquin', sans-serif;
-$font-family-serif: 'Scope One', serif;
+
 $font-size-base: 15px;
 $text-color: #06304a;
-$headings-font-family: 'Scope One', serif;
 $body-bg: #083C5D;
 $brand-primary: #0c5a8c;
 $navbar-default-bg: #135a50;
@@ -39,7 +37,15 @@ $dropdown-link-hover-bg: #fefefc;
 @import "bootstrap";
 @import "parsley";
 @import "bootstrap-multiselect";
-
+@font-face {
+	font-family: "Iranian Sans";
+	font-style: normal;
+	font-weight: bold;
+	src: url('irsans_p30download.com.ttf');
+}
+$font-family-sans-serif: 'Palanquin', 'Iranian Sans';
+$font-family-serif: 'Scope One', 'Iranian Sans';
+$headings-font-family: 'Scope One', 'Iranian Sans';
 @ms-viewport {
   width: device-width;
 }
